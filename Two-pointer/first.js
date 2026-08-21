@@ -1,24 +1,23 @@
-// Given a sorted array, return true if there exists a pair of elements that sum to a given target.
+// // Given a sorted array, return true if there exists a pair of elements that sum to a given target.
 
-function hasPairWithSum(nums, target) {
+function checkpair(arr, target){
     let left = 0;
-    let right = nums.length - 1;
+    let right = arr.length - 1;
+    let sum = 0;
 
-    while (left < right) {
-        const currentSum = nums[left] + nums[right];
+    while(left < right){
+        sum = arr[left] + arr[right];
 
-        if (currentSum === target) {
-            return true;
-        } else if (currentSum < target) {
-            left++;  // Need a larger sum
-        } else {
-            right--; // Need a smaller sum
+        if(sum === target){
+            return true
+        }else if(sum < target){
+            left++
+        }else{
+            right--;
         }
     }
-
-    return false;
+    return false
 }
 
-// Example Usage:
-console.log(hasPairWithSum([1, 2, 4, 7, 11, 15], 15)); // true (4 + 11)
-console.log(hasPairWithSum([1, 2, 3, 9], 8));          // false
+console.log(checkpair([1, 2, 4, 7, 11, 15], 15)); // true (4 + 11)
+console.log(checkpair([1, 2, 3, 9], 8));          // false.
