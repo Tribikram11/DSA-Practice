@@ -4,7 +4,7 @@ function threeSum(arr) {
     arr.sort((a, b) => a - b)
     let result = [];
 
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length-2; i++) {
         if (i > 0 && arr[i] === arr[i - 1]) {
             continue
         }
@@ -17,14 +17,13 @@ function threeSum(arr) {
 
             if (sum === 0) {
                 result.push([arr[i], arr[left], arr[right]])
-
                 left++;
                 right--;
-                if (left < right && arr[left] === arr[left - 1]) {
+                while (left < right && arr[left] === arr[left - 1]) {
                     left++;
                 }
 
-                if (left < right && arr[right] === arr[right + 1]) {
+                while (left < right && arr[right] === arr[right + 1]) {
                     right--;
                 }
 
@@ -36,7 +35,7 @@ function threeSum(arr) {
             }
         }
     }
-    return result
+    return result;
 
 }
 
